@@ -1,0 +1,122 @@
+#!/usr/bin/bash
+#################################################################################
+# GEOS-CHEM CLASSIC SGE JOB SCRIPT
+#-------------------------------------------------------------------------------
+# This job script is to be submitted using qsub from the GEOS-Chem Classic run
+# directory for your run, e.g.
+#
+#     qsub geos_chem_classic.job
+#-------------------------------------------------------------------------------
+# The following additional files should be in the run directory:
+#
+#     - setup_geos_environment.sh (if you don't have this, request it from me
+#       using <killian.murphy@york.ac.uk>)
+#-------------------------------------------------------------------------------
+# You should set the value of the variable GC_RUNDIR in the JOB VARIABLES
+# section of this script, as some of this script's commands assume that it is
+# set, e.g.
+# 
+#    GC_RUNDIR="/scratch/klcm500/GEOS-Chem_v11-01_rundirs/geosfp_4x5_standard"
+#-------------------------------------------------------------------------------
+# You need to specify certain SGE directives in the SGE DIRECTIVES section of 
+# this script. The directives that you need to complete are clearly marked
+# within the SGE DIRECTIVES section, including example completions.
+#-------------------------------------------------------------------------------
+# If you wish to customise this boilerplate job script to better suit your
+# needs, please visit:
+#
+#    https://wiki.york.ac.uk/display/RHPC/4%29+Job+script+files
+# 
+# in the first instance. There you will find some information about how SGE job
+# scripts are written for YARCC.
+################################################################################
+
+#===============================================================================
+# JOB VARIABLES:
+#===============================================================================
+GC_RUNDIR=/ABSOLUTE/PATH/TO/YOUR/RUN/DIRECTORY
+
+#===============================================================================
+# SGE DIRECTIVES:
+#===============================================================================
+
+#-------------------------------------------------------------------------------
+# JOB NAME: complete this directive with the name that you would like your job
+#           to have, e.g.
+#
+#              #$ -N GEOS-Chem_Classic_v11-01_1month 
+#
+#           There should be no whitespace characters in your job name.
+#-------------------------------------------------------------------------------
+#$ -N YOUR_JOB_NAME
+
+#$ -cwd
+#$ -V
+
+#-------------------------------------------------------------------------------
+# WALL CLOCK TIME: complete this directive with the amount of wall clock time
+#                  you anticipate your run taking, adding at least one hour more
+#                  to your anticipated time as a buffer (hh:mm:ss), e.g.
+#
+#                     #$ -l h_rt=6:00:00 
+#
+#                  Bear in mind that this script will request 8 processes and
+#                  32GB of RAM for your run.
+#-------------------------------------------------------------------------------
+#$ -l h_rt=HH:MM:SS
+
+#$ -pe smp 8
+#$ -l h_vmem=4G
+#$ -m be
+
+#-------------------------------------------------------------------------------
+# USER EMAIL ADDRESS: complete this directive with the email address to which
+#                     you want job start and job end notification emails to be
+#                     sent, e.g.
+#
+#                         #$ -M killian.murphy@york.ac.uk 
+#-------------------------------------------------------------------------------
+#$ -M USER.EMAIL.ADDRESS@york.ac.uk
+
+#-------------------------------------------------------------------------------
+# STANDARD OUTPUT DIR: complete this directive with the name of the directory
+#                      into which you want GEOS-Chem Classic's standard output
+#                      to be stored, e.g.
+#
+#                         #$ -o /scratch/klcm500/GEOS-Chem_v11-01_rundirs/geosfp_4x5_standard/logs/GEOS-Chem_Classic_v11-01_1month 
+#
+#                      This directory must exist before you submit your job, as
+#                      you will have to recover your job from an error state if
+#                      it does not.
+#-------------------------------------------------------------------------------
+#$ -o /ABSOLUTE/PATH/TO/YOUR/STANDARD/OUTPUT/DIRECTORY
+
+#-------------------------------------------------------------------------------
+# STANDARD ERROR DIR: complete this directive with the name of the directory
+#                     into which you want GEOS-Chem Classic's standard error 
+#                     to be stored, e.g.
+#
+#                         #$ -o /scratch/klcm500/GEOS-Chem_v11-01_rundirs/geosfp_4x5_standard/logs/GEOS-Chem_Classic_v11-01_1month 
+#
+#                     This directory must exist before you submit your job, as
+#                     you will have to recover your job from an error state if
+#                     it does not.
+#-------------------------------------------------------------------------------
+#$ -e /ABSOLUTE/PATH/TO/YOUR/STANDARD/ERROR/DIRECTORY
+
+#===============================================================================
+# ENVIRONMENT CONFIGURATION:
+#===============================================================================
+source "$GC_RUNDIR/setup_geos_environment.sh"
+
+#===============================================================================
+# EXECUTABLE TO RUN:
+#-------------------------------------------------------------------------------
+# This will typically be 'geos' inside of your run directory. You can use the
+# previously set GC_RUNDIR variable to make referencing this executable more
+# straightforward, e.g.
+#
+#     $GC_RUNDIR/geos
+#
+#===============================================================================
+$GC_RUNDIR/COMPILED_EXECUTABLE_NAME
