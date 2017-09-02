@@ -45,13 +45,13 @@ Again, there are a few simple steps that you need to follow in order to submit G
 * place the `setup_geos_environment.sh` file, found in the `scripts` directory of this repository, in the GEOS-Chem Classic run directory, e.g.
 
 ```bash
-wget https://raw.githubusercontent.com/kilicomu/geos_chem_yarcc/master/setup_geos_environment.sh
+wget https://raw.githubusercontent.com/wacl-york/geos_chem_yarcc/master/scripts/setup_geos_environment.sh
 ```
 
 * place the `geos_chem_classic.job` file, found in the `scripts` directory of this repository, in the GEOS-Chem Classic run directory, e.g.
 
 ```bash
-wget https://raw.githubusercontent.com/kilicomu/geos_chem_yarcc/master/geos_chem_classic.job
+wget https://raw.githubusercontent.com/wacl-york/geos_chem_yarcc/master/scripts/geos_chem_classic.job
 ```
 
 * modify the `geos_chem_classic.job` file to suit the specifics of your run. There are detailed instructions on how to do this within the `geos_chem_classic.job` file
