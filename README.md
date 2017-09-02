@@ -1,5 +1,5 @@
 # GEOS-Chem Classic on YARCC
-This repository contains a boilerplate job script and environment setup script for submitting GEOS-Chem Classic runs to YARCC, the York Advanced Research Computing Cluster. The scripts can be found in the 'scripts' directory of this repository, and can be downloaded individually by (among other methods), clicking on the file name above, right clicking the 'Raw' button in the top-right of the file view, and selecting 'Save Link As' (or equivalent).
+This repository contains a boilerplate job script and environment setup script for submitting GEOS-Chem Classic runs to YARCC, the York Advanced Research Computing Cluster. The scripts can be found in the `scripts` directory of this repository, and can be downloaded individually by (among other methods), clicking on the file name above, right clicking the 'Raw' button in the top-right of the file view, and selecting 'Save Link As' (or equivalent).
 
 ## Accessing YARCC
 If you are a current University of York research student, you are eligible for YARCC access. Please send an email to <itsupport@york.ac.uk> in order to request access to YARCC. Once you've been granted access, you can follow the [instructions found in the York Research and High Performance Computing wiki space](https://wiki.york.ac.uk/display/RHPC/Accessing+YARCC) in order to start using YARCC.
@@ -15,7 +15,7 @@ There are a few simple steps to go through in order to compile GEOS-Chem Classic
 /scratch/USERNAME/Code.v11-01
 ```
 
-* load environment modules that contain requisite software for GEOS-Chem Classic compilation. For an overview of how environment modules function on YARCC, see the [Modules page in the Research and High Performance Computing wiki space]. The following modules must be loaded in the order indicated below: 
+* load environment modules that contain requisite software for GEOS-Chem Classic compilation. For an overview of how environment modules function on YARCC, see the ['Modules' page in the Research and High Performance Computing wiki space](https://wiki.york.ac.uk/display/RHPC/2%29+Modules). The following modules must be loaded in the order indicated below: 
 
 ```bash
 module load icc/2013_sp1.3.174
@@ -45,13 +45,13 @@ Again, there are a few simple steps that you need to follow in order to submit G
 * place the `setup_geos_environment.sh` file, found in the `scripts` directory of this repository, in the GEOS-Chem Classic run directory, e.g.
 
 ```bash
-/scratch/USERNAME/GEOS-Chem_Classic_v11-01_rundirs/geosfp_4x5_standard $ wget https://raw.githubusercontent.com/kilicomu/geos_chem_yarcc/master/setup_geos_environment.sh
+wget https://raw.githubusercontent.com/kilicomu/geos_chem_yarcc/master/setup_geos_environment.sh
 ```
 
 * place the `geos_chem_classic.job` file, found in the `scripts` directory of this repository, in the GEOS-Chem Classic run directory, e.g.
 
 ```bash
-/scratch/USERNAME/GEOS-Chem_Classic_v11-01_rundirs/geosfp_4x5_standard $ wget https://raw.githubusercontent.com/kilicomu/geos_chem_yarcc/master/geos_chem_classic.job
+wget https://raw.githubusercontent.com/kilicomu/geos_chem_yarcc/master/geos_chem_classic.job
 ```
 
 * modify the `geos_chem_classic.job` file to suit the specifics of your run. There are detailed instructions on how to do this within the `geos_chem_classic.job` file
@@ -62,7 +62,7 @@ Again, there are a few simple steps that you need to follow in order to submit G
 * modify the `HEMCO_config.rc` file in the following ways:
     * change the `ROOT` field to `/shared/earthfs/GEOS/ExtData/HEMCO`
 
-Once you have completed the above, and made any other run-specific customisations that you need to make, you can submit your job to the YARCC workload manager using `qsub`, e.g.
+Once you have completed the above, and made any other run-specific customisations that you need to make, you can submit your job to the YARCC workload manager using `qsub` from within your run directory, e.g.
 
 ```bash
 qsub geos_chem_classic.job
