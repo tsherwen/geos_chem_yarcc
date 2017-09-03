@@ -9,21 +9,21 @@ Before using YARCC, you should read through the [YARCC documentation in the York
 ## Compiling GEOS-Chem on YARCC
 There are a few simple steps to go through in order to compile GEOS-Chem Classic with Intel 2013 compilers on YARCC:
 
-* copy/create a GEOS-Chem Classic source code directory into/in your YARCC scratch directory, resulting in e.g.
+* copy/create a GEOS-Chem Classic source code directory into/in your YARCC scratch directory, resulting in e.g. `/scratch/USERNAME/Code.v11-01`
 
-```
-/scratch/USERNAME/Code.v11-01
-```
-
-* load environment modules that contain requisite software for GEOS-Chem Classic compilation. For an overview of how environment modules function on YARCC, see the ['Modules' page in the Research and High Performance Computing wiki space](https://wiki.york.ac.uk/display/RHPC/2%29+Modules). The following modules must be loaded in the order indicated below: 
+* set up the environment for compiling GEOS-Chem Classic. This can be achieved using the `setup_geos_environment.sh` file contained within this repository. Place the `setup_geos_environment.sh` file within your GEOS-Chem Classic source code directory, e.g.
 
 ```bash
-module load icc/2013_sp1.3.174
-module load ifort/2013_sp1.3.174
-module load hdf5/1.8.18
-module load NetCDF/4.4.1.1
-module load NetCDF-fortran/4.4.4
+wget https://raw.githubusercontent.com/wacl-york/geos_chem_yarcc/master/scripts/setup_geos_environment.sh
 ```
+
+Source the environment:
+
+```bash
+source setup_geos_environment.sh
+```
+
+This loads requisite environment modules (like those for the Intel compilers and NetCDF) into your environment in the correct order, and sets some environment variables that will indicate to the compiler where the NetCDF libraries are located.
 
 * compile GEOS-Chem as you normally would, e.g.
 
@@ -33,7 +33,7 @@ make -j4 mpbuild
 
 You do not need to submit compilation tasks to the workload manager; you can compile GEOS-Chem Classic on the login nodes.
 
-## Running GEOS-Chem on Yarcc
+## Running GEOS-Chem on YARCC
 Again, there are a few simple steps that you need to follow in order to submit GEOS-Chem Classic runs to the YARCC workload manager:
 
 * copy/create your GEOS-Chem Classic run directory into/in your YARCC scratch directory, resulting in e.g.
