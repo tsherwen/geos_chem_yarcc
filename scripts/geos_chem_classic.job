@@ -50,7 +50,22 @@ GC_RUNDIR=/ABSOLUTE/PATH/TO/YOUR/RUN/DIRECTORY
 #-------------------------------------------------------------------------------
 #$ -N YOUR_JOB_NAME
 
+#-------------------------------------------------------------------------------
+# WORKING DIRECTORY: this directive sets the job's working directory to the
+#                    directory from which the job is submitted. There may be
+#                    times at which you don't want this to be the case, but
+#                    for GEOS-Chem Classic runs using this job script, you
+#                    almost certainly want to keep this directive as-is.
+#-------------------------------------------------------------------------------
 #$ -cwd
+
+#-------------------------------------------------------------------------------
+# ENVIRONMENT: this directive propagates your pre job submission environment
+#              on the login node to compute nodes that run your job. There may
+#              times at which you don't want this to happen, but for GEOS-Chem
+#              Classic runs using this job script, you almost certainly want to
+#              keep this directive as-is.
+#-------------------------------------------------------------------------------
 #$ -V
 
 #-------------------------------------------------------------------------------
@@ -65,8 +80,45 @@ GC_RUNDIR=/ABSOLUTE/PATH/TO/YOUR/RUN/DIRECTORY
 #-------------------------------------------------------------------------------
 #$ -l h_rt=HH:MM:SS
 
-#$ -pe smp 8
-#$ -l h_vmem=4G
+#-------------------------------------------------------------------------------
+# PARALLEL ENVIRONMENT: this directive declares a shared-memory parallel
+#                       environment for your job, and states the number of
+#                       processes that you want for your job, N.
+#
+#                       The number of processes that you indicate here is
+#                       multiplied with the amount of per process RAM that you
+#                       specify later in this job script, resulting in a total
+#                       job RAM of:
+#
+#                           number_of_processes * ram_per_process
+#-------------------------------------------------------------------------------
+#$ -pe smp N
+
+#-------------------------------------------------------------------------------
+# MEMORY PER PROCESS: this directive declares how much RAM per process you want
+#                     to be available for your job, X. You can use standard
+#                     suffixes to the number to represent the unit, e.g.
+#
+#                         #$ -l h_vmem=4G
+#
+#                     specifies that you would like 4GB or RAM to be available
+#                     for each of your job's processes.
+#
+#                     The ram per process that you indicate here is multiplied
+#                     with the number of shared memory processes that you
+#                     specified previously in this job script, resulting in a
+#                     total job RAM of:
+#
+#                         number_of_processes * ram_per_process
+#-------------------------------------------------------------------------------
+#$ -l h_vmem=X
+
+#-------------------------------------------------------------------------------
+# EMAIL TIMINGS: this directive defines the times at which you will be emailed
+#                about your job at the email address you specify  later in this
+#                job script. 'b' indicates 'beginning', i.e. job start time, and
+#                'e' indicates 'end', i.e. job completion time.
+#-------------------------------------------------------------------------------
 #$ -m be
 
 #-------------------------------------------------------------------------------
@@ -106,6 +158,14 @@ GC_RUNDIR=/ABSOLUTE/PATH/TO/YOUR/RUN/DIRECTORY
 
 #===============================================================================
 # ENVIRONMENT CONFIGURATION:
+#-------------------------------------------------------------------------------
+# You must have a copy of the setup_geos_environment.sh file in the GEOS-Chem
+# Classic run directory that you specified in $GC_RUNDIR, or else this step will
+# fail and your run won't work.
+#
+# You can get this file at:
+#
+#     https://raw.githubusercontent.com/wacl-york/geos_chem_yarcc/master/scripts/setup_geos_environment.sh
 #===============================================================================
 source "$GC_RUNDIR/setup_geos_environment.sh"
 
