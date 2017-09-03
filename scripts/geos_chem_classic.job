@@ -75,8 +75,9 @@ GC_RUNDIR=/ABSOLUTE/PATH/TO/YOUR/RUN/DIRECTORY
 #
 #                     #$ -l h_rt=6:00:00 
 #
-#                  Bear in mind that this script will request 8 processes and
-#                  32GB of RAM for your run.
+#                  When completing this directive, take into account the number
+#                  of processes and RAM per process that you are requesting for
+#                  the job. These are described later in this job script.
 #-------------------------------------------------------------------------------
 #$ -l h_rt=HH:MM:SS
 
