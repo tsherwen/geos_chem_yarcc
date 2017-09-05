@@ -56,11 +56,11 @@ wget https://raw.githubusercontent.com/wacl-york/geos_chem_yarcc/master/scripts/
 
 * modify the `geos_chem_classic.job` file to suit the specifics of your run. There are detailed instructions on how to do this within the `geos_chem_classic.job` file
 * modify the `input.geos` file in the following ways:
-    * change the `Root data directory` field to `/shared/earthfs/GEOS/ExtData`
+    * change the `Root data directory` field to `/shared/earthfs/work/data/GEOS/ExtData`
     * if you are using an input restart file that resides in the `ExtData` directory, replace everything in the `Input restart file` field up to and including `ExtData` with `/shared/earthfs/GEOS/ExtData`
-    * change the `Dir w/ 1x1 emissions etc` field to `/shared/earthfs/GEOS/ExtData/GEOS_NATIVE/`
+    * change the `Dir w/ 1x1 emissions etc` field to `/shared/earthfs/work/data/GEOS/ExtData/GEOS_NATIVE/`
 * modify the `HEMCO_config.rc` file in the following ways:
-    * change the `ROOT` field to `/shared/earthfs/GEOS/ExtData/HEMCO`
+    * change the `ROOT` field to `/shared/earthfs/work/data/GEOS/ExtData/HEMCO`
 
 Once you have completed the above, and made any other run-specific customisations that you need to make, you can submit your job to the YARCC workload manager using `qsub` from within your run directory, e.g.
 
