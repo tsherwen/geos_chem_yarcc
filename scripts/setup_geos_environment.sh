@@ -42,7 +42,7 @@ export GC_BIN="$GC_C_BASE/bin"
 export GC_INCLUDE="$GC_C_BASE/include"
 export GC_LIB="$GC_C_BASE/lib"
 export GC_F_BIN="$GC_F_BASE/bin"
-export GC_F_INLUDE="$GC_F_BASE/include"
+export GC_F_INCLUDE="$GC_F_BASE/include"
 export GC_F_LIB="$GC_F_BASE/lib"
 
 ################################################################################
