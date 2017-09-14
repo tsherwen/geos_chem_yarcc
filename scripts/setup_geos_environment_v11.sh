@@ -50,18 +50,6 @@ export GC_F_LIB="$GC_F_BASE/lib"
 #-------------------------------------------------------------------------------
 # These must be set before running GEOS-Chem.
 ################################################################################
-# Max out machine limits
-ulimit -t unlimited              # cputime
-ulimit -f unlimited              # filesize
-ulimit -d unlimited              # datasize
-ulimit -s unlimited              # stacksize
-ulimit -c unlimited              # coredumpsize
-ulimit -m unlimited              # memoryuse
-ulimit -v unlimited              # vmemoryuse
-ulimit -n unlimited              # descriptors
-ulimit -l unlimited              # memorylocked
-ulimit -u unlimited              # maxproc
-
 # Reset the child stack size to a large positive number
 # (It's OK if this is larger than the max value, it's just a kludge)
 export OMP_STACKSIZE=500m
