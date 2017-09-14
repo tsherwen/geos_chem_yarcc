@@ -11,10 +11,10 @@ There are a few simple steps to go through in order to compile GEOS-Chem Classic
 
 * copy/create a GEOS-Chem Classic source code directory into/in your YARCC scratch directory, resulting in e.g. `/scratch/USERNAME/Code.v11-01`
 
-* set up the environment for compiling GEOS-Chem Classic. This can be achieved using the `setup_geos_environment_??.sh` file contained within this repository (where ?? = v10_v9_2 or v11, depending on version GEOS-Chem version you are using <= v10-01 or >=v11-01). Place the `setup_geos_environment.sh` file within your GEOS-Chem Classic source code directory, e.g.
+* set up the environment for compiling GEOS-Chem Classic. This can be achieved using the `setup_geos_environment_??.sh` file contained within this repository (where ?? = v10_v9_2 or v11, depending on the version of GEOS-Chem that you are using: <= v10-01 or >=v11-01). Place the `setup_geos_environment_??.sh` file within your GEOS-Chem Classic source code directory, e.g.
 
 ```bash
-wget https://raw.githubusercontent.com/wacl-york/geos_chem_yarcc/master/scripts/setup_geos_environment_v11.sh setup_geos_environment.sh
+wget https://raw.githubusercontent.com/wacl-york/geos_chem_yarcc/master/scripts/setup_geos_environment_v11.sh
 ```
 
 Source the environment:
@@ -42,10 +42,10 @@ Again, there are a few simple steps that you need to follow in order to submit G
 /scratch/USERNAME/GEOS-Chem_Classic_v11-01_rundirs/geosfp_4x5_standard
 ```
 
-* place the `setup_geos_environment.sh` file, found in the `scripts` directory of this repository, in the GEOS-Chem Classic run directory, e.g.
+* place the `setup_geos_environment_??.sh` file, found in the `scripts` directory of this repository, in the GEOS-Chem Classic run directory, e.g.
 
 ```bash
-wget https://raw.githubusercontent.com/wacl-york/geos_chem_yarcc/master/scripts/setup_geos_environment.sh
+wget https://raw.githubusercontent.com/wacl-york/geos_chem_yarcc/master/scripts/setup_geos_environment_v11.sh
 ```
 
 * place the `geos_chem_classic.job` file, found in the `scripts` directory of this repository, in the GEOS-Chem Classic run directory, e.g.
