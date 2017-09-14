@@ -42,6 +42,4 @@ export GC_LIB="$GC_BASE/lib"
 #-------------------------------------------------------------------------------
 # These must be set before running GEOS-Chem.
 ################################################################################
-# Reset the child stack size to a large positive number
-# (It's OK if this is larger than the max value, it's just a kludge)
 export OMP_STACKSIZE=500m
