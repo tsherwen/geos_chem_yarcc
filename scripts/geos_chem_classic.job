@@ -149,7 +149,7 @@ GC_RUNDIR="/scratch/ts551/GC/V11_1_Patches_geosfp_4x5_standard/"
 #                     into which you want GEOS-Chem Classic's standard error 
 #                     to be stored, e.g.
 #
-#                         #$ -o /scratch/klcm500/GEOS-Chem_v11-01_rundirs/geosfp_4x5_standard/logs/GEOS-Chem_Classic_v11-01_1month 
+#                         #$ -e /scratch/klcm500/GEOS-Chem_v11-01_rundirs/geosfp_4x5_standard/logs/GEOS-Chem_Classic_v11-01_1month 
 #
 #                     This directory must exist before you submit your job, as
 #                     you will have to recover your job from an error state if
