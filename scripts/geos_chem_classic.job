@@ -182,4 +182,4 @@ source "$GC_RUNDIR/setup_geos_environment.sh"
 #     $GC_RUNDIR/geos
 #
 #===============================================================================
-$GC_RUNDIR/geos
+$GC_RUNDIR/COMPILED_EXECUTABLE_NAME
