@@ -34,7 +34,7 @@
 #===============================================================================
 # JOB VARIABLES:
 #===============================================================================
-GC_RUNDIR="/scratch/ts551/GC/V11_1_Patches_geosfp_4x5_standard/"
+GC_RUNDIR="/ABSOLUTE/PATH/TO/YOUR/RUN/DIRECTORY"
 
 #===============================================================================
 # SGE DIRECTIVES:
@@ -48,7 +48,7 @@ GC_RUNDIR="/scratch/ts551/GC/V11_1_Patches_geosfp_4x5_standard/"
 #
 #           There should be no whitespace characters in your job name.
 #-------------------------------------------------------------------------------
-#$ -N v11-1-Patches
+#$ -N YOUR_JOB_NAME
 
 #-------------------------------------------------------------------------------
 # WORKING DIRECTORY: this directive sets the job's working directory to the
@@ -79,12 +79,14 @@ GC_RUNDIR="/scratch/ts551/GC/V11_1_Patches_geosfp_4x5_standard/"
 #                  of processes and RAM per process that you are requesting for
 #                  the job. These are described later in this job script.
 #-------------------------------------------------------------------------------
-#$ -l h_rt=8:00:00
+#$ -l h_rt=HH:MM:SS
 
 #-------------------------------------------------------------------------------
 # PARALLEL ENVIRONMENT: this directive declares a shared-memory parallel
 #                       environment for your job, and states the number of
-#                       processes that you want for your job, N.
+#                       processes that you want for your job, N., e.g. 
+#
+#                       #$ -pe smp 16 
 #
 #                       The number of processes that you indicate here is
 #                       multiplied with the amount of per process RAM that you
@@ -93,7 +95,7 @@ GC_RUNDIR="/scratch/ts551/GC/V11_1_Patches_geosfp_4x5_standard/"
 #
 #                           number_of_processes * ram_per_process
 #-------------------------------------------------------------------------------
-#$ -pe smp 16
+#$ -pe smp N
 
 #-------------------------------------------------------------------------------
 # MEMORY PER PROCESS: this directive declares how much RAM per process you want
@@ -112,7 +114,7 @@ GC_RUNDIR="/scratch/ts551/GC/V11_1_Patches_geosfp_4x5_standard/"
 #
 #                         number_of_processes * ram_per_process
 #-------------------------------------------------------------------------------
-#$ -l h_vmem=8G
+#$ -l h_vmem=X
 
 #-------------------------------------------------------------------------------
 # EMAIL TIMINGS: this directive defines the times at which you will be emailed
@@ -129,7 +131,7 @@ GC_RUNDIR="/scratch/ts551/GC/V11_1_Patches_geosfp_4x5_standard/"
 #
 #                         #$ -M killian.murphy@york.ac.uk 
 #-------------------------------------------------------------------------------
-#$ -M tomas.sherwen@gmail.com
+#$ -M USER.EMAIL.ADDRESS@york.ac.uk
 
 #-------------------------------------------------------------------------------
 # STANDARD OUTPUT DIR: complete this directive with the name of the directory
@@ -142,7 +144,7 @@ GC_RUNDIR="/scratch/ts551/GC/V11_1_Patches_geosfp_4x5_standard/"
 #                      you will have to recover your job from an error state if
 #                      it does not.
 #-------------------------------------------------------------------------------
-#$ -o /scratch/ts551/GC/V11_1_Patches_geosfp_4x5_standard/output
+#$ -o /ABSOLUTE/PATH/TO/YOUR/STANDARD/OUTPUT/DIRECTORY
 
 #-------------------------------------------------------------------------------
 # STANDARD ERROR DIR: complete this directive with the name of the directory
@@ -155,7 +157,7 @@ GC_RUNDIR="/scratch/ts551/GC/V11_1_Patches_geosfp_4x5_standard/"
 #                     you will have to recover your job from an error state if
 #                     it does not.
 #-------------------------------------------------------------------------------
-#$ -e /scratch/ts551/GC/V11_1_Patches_geosfp_4x5_standard/
+#$ -e /ABSOLUTE/PATH/TO/YOUR/STANDARD/ERROR/DIRECTORY
 
 #===============================================================================
 # ENVIRONMENT CONFIGURATION:
