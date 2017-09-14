@@ -34,7 +34,7 @@
 #===============================================================================
 # JOB VARIABLES:
 #===============================================================================
-GC_RUNDIR=/ABSOLUTE/PATH/TO/YOUR/RUN/DIRECTORY
+GC_RUNDIR="/scratch/ts551/GC/V11_1_Patches_geosfp_4x5_standard/"
 
 #===============================================================================
 # SGE DIRECTIVES:
@@ -48,7 +48,7 @@ GC_RUNDIR=/ABSOLUTE/PATH/TO/YOUR/RUN/DIRECTORY
 #
 #           There should be no whitespace characters in your job name.
 #-------------------------------------------------------------------------------
-#$ -N YOUR_JOB_NAME
+#$ -N v11-1-Patches
 
 #-------------------------------------------------------------------------------
 # WORKING DIRECTORY: this directive sets the job's working directory to the
@@ -79,7 +79,7 @@ GC_RUNDIR=/ABSOLUTE/PATH/TO/YOUR/RUN/DIRECTORY
 #                  of processes and RAM per process that you are requesting for
 #                  the job. These are described later in this job script.
 #-------------------------------------------------------------------------------
-#$ -l h_rt=HH:MM:SS
+#$ -l h_rt=8:00:00
 
 #-------------------------------------------------------------------------------
 # PARALLEL ENVIRONMENT: this directive declares a shared-memory parallel
@@ -93,7 +93,7 @@ GC_RUNDIR=/ABSOLUTE/PATH/TO/YOUR/RUN/DIRECTORY
 #
 #                           number_of_processes * ram_per_process
 #-------------------------------------------------------------------------------
-#$ -pe smp N
+#$ -pe smp 16
 
 #-------------------------------------------------------------------------------
 # MEMORY PER PROCESS: this directive declares how much RAM per process you want
@@ -112,7 +112,7 @@ GC_RUNDIR=/ABSOLUTE/PATH/TO/YOUR/RUN/DIRECTORY
 #
 #                         number_of_processes * ram_per_process
 #-------------------------------------------------------------------------------
-#$ -l h_vmem=X
+#$ -l h_vmem=8G
 
 #-------------------------------------------------------------------------------
 # EMAIL TIMINGS: this directive defines the times at which you will be emailed
@@ -129,7 +129,7 @@ GC_RUNDIR=/ABSOLUTE/PATH/TO/YOUR/RUN/DIRECTORY
 #
 #                         #$ -M killian.murphy@york.ac.uk 
 #-------------------------------------------------------------------------------
-#$ -M USER.EMAIL.ADDRESS@york.ac.uk
+#$ -M tomas.sherwen@gmail.com
 
 #-------------------------------------------------------------------------------
 # STANDARD OUTPUT DIR: complete this directive with the name of the directory
@@ -142,7 +142,7 @@ GC_RUNDIR=/ABSOLUTE/PATH/TO/YOUR/RUN/DIRECTORY
 #                      you will have to recover your job from an error state if
 #                      it does not.
 #-------------------------------------------------------------------------------
-#$ -o /ABSOLUTE/PATH/TO/YOUR/STANDARD/OUTPUT/DIRECTORY
+#$ -o /scratch/ts551/GC/V11_1_Patches_geosfp_4x5_standard/output
 
 #-------------------------------------------------------------------------------
 # STANDARD ERROR DIR: complete this directive with the name of the directory
@@ -155,7 +155,7 @@ GC_RUNDIR=/ABSOLUTE/PATH/TO/YOUR/RUN/DIRECTORY
 #                     you will have to recover your job from an error state if
 #                     it does not.
 #-------------------------------------------------------------------------------
-#$ -e /ABSOLUTE/PATH/TO/YOUR/STANDARD/ERROR/DIRECTORY
+#$ -e /scratch/ts551/GC/V11_1_Patches_geosfp_4x5_standard/
 
 #===============================================================================
 # ENVIRONMENT CONFIGURATION:
@@ -180,4 +180,4 @@ source "$GC_RUNDIR/setup_geos_environment.sh"
 #     $GC_RUNDIR/geos
 #
 #===============================================================================
-$GC_RUNDIR/COMPILED_EXECUTABLE_NAME
+$GC_RUNDIR/geos
